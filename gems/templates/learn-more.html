@@ -1,0 +1,237 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+
+  
+      <!-- META -->
+      <meta charset="utf-8">
+      <meta name="robots" content="noodp">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="title" content="Dropping Gems NFT">
+		<meta name="author" content="Dropping Gems NFT">
+		<meta name="description" content="A Dynamic NFT that changes as you tweet">
+		<meta name="keywords" content="ethereum, NFT, dynamic, generative" />
+		<link rel="canonical" href="www.gemsNFT.co">
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="www.gemsNFT.co">
+		<meta property="og:title" content="Dropping Gems NFT">
+		<meta property="og:description" content="A Dynamic NFT that changes as you tweet">
+		<meta property="og:image" content="www.gemsNFT.co">
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="www.gemsNFT.co">
+		<meta property="twitter:title" content="DroppingGems NFT">
+		<meta property="twitter:description" content="A Dynamic NFT that changes as you tweet">
+		<meta property="twitter:image" content="{% static 'images/dropping-gems.png' %}">
+
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="120x120" href="{% static 'images/gem-small.png' %}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/gem-small.png' %}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/gem-small.png' %}">
+	
+	
+      
+      <!-- PAGE TITLE -->
+      <title>Learn More</title>
+      
+      
+            <!-- FAVICON -->
+			<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+      
+      
+			<!-- GOOGLE FONTS -->
+			<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600|Raleway:300,400" rel="stylesheet">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	   
+			<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+			
+			
+			<!-- STYLESHEETS -->
+			<link rel="stylesheet" type="text/css" href="{% static 'css/plugins.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/hero.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+			  
+				  
+            
+  </head>
+  
+  
+  <body>
+  
+  
+  
+	  <!-- MAIN -->
+      <div id="main">
+		    
+             
+              
+              
+              
+		  <!-- HERO -->
+		  <section id="hero" class="hero error-404">
+            
+     
+
+			  <!-- FRONT CONTENT -->
+			  <div class="front-content show">
+				
+
+				  <!-- CONTAINER MID -->
+				  <div class="container-mid">
+					<a href="{% url 'homepage' %}">
+						<button type="button" class="btn btn-primary absolute top-0 left-0 pt-3">Back to Home</button>
+					</a>
+				
+			
+                    <div>
+						<h2>DroppingGems - Colored with Sentiment Analysis</h2>
+						<h5>A gem’s color is determined by the overall moods and attitudes expressed by the owner. The colors of the Gem change as the owner tweets. (Mood Gem)  </h5>
+                        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+                            <img  class="mx-auto" src="{% static 'images/color-banner1.png' %}" alt="">
+   
+                        </div>
+                      </div>
+				  
+                    <div class="relative py-16 overflow-hidden">
+								
+                        <div class="relative px-4 sm:px-6 lg:px-8">
+							<h2>Text => Emotion => Color</h2>
+							<br>
+							<div class="row">
+								<div class="col-12 col-sm-6">
+									<img src="{% static 'images/sentiment-analysis.png' %}" class="rounded mx-auto d-block" alt="...">
+								</div>
+								<div class="col-12 col-sm-6">
+									
+									<h6 class="text-left">Most data analyzed with Ai is structured. This means that the data has been labeled, categorized, and characterized. However, Natural Language Processing helps computers understand unstructuctured text like tweets.</h6>
+									<br>
+									<h6 class="text-left">Sentiment Analysis is a part of Nautral Language Processing and  <bold class="font-extrabold">Data Scientists</bold> use it to determine the mood and emotions of unstructured text. Sentiment analysis allows computers to process a piece of text and then assign numerical values to it for classification and understanding.
+										Example: Amazon can use sentiment analysis to get a general reaction and rating for a new product based on the comments of users.
+										</h6>
+									
+								</div>
+								
+				
+							  </div>
+<hr>
+<h2>How It Works:</h2>
+<div class="row">
+	<div class="col-12 col-sm-6">
+		<h6 class="text-left">Textblob is a python library for Natural Language Processing (NLP), that identifies two data points of sentiment in text. <bold class="font-extrabold">Polarity</bold> - which labels a text on a range from negative to positive and <bold class="font-extrabold">Subjectivity</bold> which labels a text from opinionated to factual.
+		</h6>
+	</div>
+	<div class="col-12 col-sm-6">
+		<h6 class="text-left">-- Polarity is a number between 1 - 200 with 100 being neutral. Polarizing text is characterized as negative emotion. This could be anger, dislike, sadness, or frustration. The lower the score, the more polarized the text.
+		</h6>
+		<h6 class="text-left">-- Subjectivity is a number between 1 - 100. For example, if a person tweets information about how the blockchain works, this would fall on the higher end of the spectrum. On the otherhand, if a person tweets how much they loved Ethereum, this would be seen as more of an opinion and therefore lower on the scale.
+		</h6>
+	</div>
+	
+
+  </div>
+<hr>
+<div class="py-16 bg-gray-50 overflow-hidden">
+	<div class="max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8">
+	
+		<h2>Obama as an Example:</h2>
+		<br>
+	  <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
+		<div class="relative z-10">
+		  <div class="prose prose-indigo text-white mx-auto lg:max-w-none">
+			
+			<h5 class="text-left">Here is a recent tweet from Barack Obama. It is a mixture of facts and opinions with a generally postive emotion. Becasue of this, the tweet has a score of <bold class="font-extrabold">40</bold> for Subjectivity and <bold class="font-extrabold">180</bold> for Polarity. </p>
+		<br>  
+		<img src="{% static 'images/obama-tweet.png' %}" class="rounded overflow-auto mx-auto d-block w-full md:max-w-lg" alt="...">
+			
+		<br>
+		<h5 class="text-left">A script then uses the two numbers (180, 40) as coordinates to identify one pixel on a color wheel. You can see, as the end result, the color has been applied to certain areas of Obama's gem. This means every gem has a infinite number of color combos based on any point in the color wheel. </h5>
+		<br>
+		<img src="{% static 'images/obame-color-1.png' %}" class="rounded mx-auto d-block" alt="...">
+		<br>
+		</div>
+		
+		</div>
+		
+		<div class="mt-12 relative text-base max-w-prose mx-auto lg:mt-0 lg:max-w-none">
+		  <svg class="absolute top-0 right-0 -mt-20 -mr-20 lg:top-auto lg:right-auto lg:bottom-1/2 lg:left-1/2 lg:mt-0 lg:mr-0 xl:top-0 xl:right-0 xl:-mt-20 xl:-mr-20" width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
+			<defs>
+			  <pattern id="bedc54bc-7371-44a2-a2bc-dc68d819ae60" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+				<rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+			  </pattern>
+			</defs>
+			<rect width="404" height="384" fill="url(#bedc54bc-7371-44a2-a2bc-dc68d819ae60)" />
+		  </svg>
+		  <blockquote class="relative bg-white rounded-lg shadow-lg">
+			<img src="{% static 'images/obame-gem.png' %}" class="rounded mx-auto d-block" alt="...">
+			
+		  </blockquote>
+		</div>
+	  </div>
+	</div>
+  </div>
+						
+                        </div>
+                      </div>
+			  
+				  </div>
+				  <!-- /CONTAINER MID -->
+
+
+			  </div>
+			  <!-- /FRONT CONTENT -->
+
+
+			  <!-- BACKGROUND CONTENT -->
+			  <div class="background-content page-enter-animated">
+
+
+				  <!-- LEVEL 1 -->
+				  <div class="level-1">
+
+				  
+					  <div class="bg-overlay"></div>
+					  <div class="bg-pattern"></div>
+					  <div id="canvas"><canvas class="bg-effect layer" data-depth="0.2"></canvas></div>
+
+			  
+				  </div>
+				  <!-- /LEVEL 1 -->
+
+
+				  <!-- LEVEL 2 -->
+				  <div class="level-2">
+
+				  
+					  <div class="bg-image layer" data-depth="0.04"></div>
+					  <div class="bg-video layer" data-depth="0.04"></div>
+					  <div class="bg-color layer" data-depth="0.04"></div>
+
+			  
+				  </div>
+				  <!-- /LEVEL 2 -->
+
+
+			  </div>
+			  <!-- /BACKGROUND CONTENT -->
+
+
+		  </section>
+		  <!-- /HERO -->
+          
+          
+      </div>
+      <!-- MAIN -->
+      
+      
+        
+
+	  
+  </body>
+
+
+</html>
