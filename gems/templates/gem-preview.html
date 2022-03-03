@@ -25,13 +25,13 @@
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:url" content="www.gemsNFT.co">
 		<meta name="twitter:title" content="DroppingGems NFT">
-		<meta name="twitter:description" content="Gem Preview: {{ meta_match.name}}">
-		<meta name="twitter:image" content="{{ meta_match.image|safe }}">
+		<meta name="twitter:description" content="Gem Preview: {{ meta_match.name }}">
+		<meta name="twitter:image" content="{% static 'images/dropping-gems.png' %}">
 
 		<!-- Favicon -->
-		<link rel="apple-touch-icon" sizes="120x120" href="{{ meta_match.image|safe }}">
-		<link rel="icon" type="image/png" sizes="32x32" href="{{ meta_match.image|safe }}">
-		<link rel="icon" type="image/png" sizes="16x16" href="{{ meta_match.image|safe }}">
+		<link rel="apple-touch-icon" sizes="120x120" href="{% static 'images/dropping-gems.png' %}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/dropping-gems.png' %}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/dropping-gems.png' %}">
 		<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 		<script charset="utf-8"
 		  src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
@@ -71,7 +71,7 @@
 				<div class="btn-group btn-block" role="group" aria-label="Basic example">
 				
 					<a class="btn btn-secondary" href="https://opensea.io/assets/0x0b5ddeff4d54c1b1ee635657c17cf54135e5db30/{{ tokenId }}" role="button" >Opensea</a>
-					<a href="{% url 'mint' %}" role="button" class="btn btn btn-success">Mint</a>
+					<a href="{% url 'mint' %}" role="button" class="btn btn btn-success">Mint A Gem</a>
 					<a href="{% url 'learn_more' %}" role="button" class="btn btn btn-primary">Learn More</a>
 				  </div>
 				<!-- Image gallery -->
