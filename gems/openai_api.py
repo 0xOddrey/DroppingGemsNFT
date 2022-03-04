@@ -22,7 +22,11 @@ from collections import Counter
 
 def my_mode(sample):
     c = Counter(sample)
-    return [k for k, v in c.items() if v == c.most_common(1)[0][1]]
+    results = [k for k, v in c.items() if v == c.most_common(1)[0][1]]
+    if len(results) == 0:
+        results = [0,0]
+
+    return(results)
 
 def getSubjectivity(text):
     result = TextBlob(text).sentiment.subjectivity
@@ -122,5 +126,6 @@ def getFullTopic(username):
     
     subject_mode = my_mode(subject_total)
     polar_mode = my_mode(polar_total)
+
 
     return(results[:9], tweet_numbers, subject_mode[0], polar_mode[0])
