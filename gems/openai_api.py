@@ -24,7 +24,7 @@ def my_mode(sample):
     c = Counter(sample)
     results = [k for k, v in c.items() if v == c.most_common(1)[0][1]]
     if len(results) == 0:
-        results = [0,0]
+        results = [100,0]
 
     return(results)
 
