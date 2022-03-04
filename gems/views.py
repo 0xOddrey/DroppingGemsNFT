@@ -177,6 +177,8 @@ def LearnMore(request):
 
 def GemPreview(request, tokenId):
     meta_match = gemsMeta.objects.filter(metaID=tokenId).first()
+    print("hello")
+    print(meta_match)
     if meta_match:
         twitter_connection = twitterConnection.objects.filter(meta_data=meta_match).first()
         if twitter_connection:
