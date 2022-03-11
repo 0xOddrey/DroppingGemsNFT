@@ -63,6 +63,7 @@ def getTopic(username):
         results = ["fee2e2", "ffedd5", "ecfccb", "dcfce7", "e0f2fe", "ede9fe", "fae8ff", "fce7f3", "c7d2fe"]
 
 
+
     random.shuffle(results)
     try:
         tweets = getTweets(username)
@@ -70,11 +71,13 @@ def getTopic(username):
         tweets = None
 
     tweet_count = 0 
+    ukraine = False 
     if tweets:
         for tweet in tweets:
+            if "#StandWithUkraine️" in tweet:
+                ukraine = True 
             if "RT @" not in tweet:
                 if tweet_count < 10:
-                    
                     subject = getSubjectivity(tweet)
                     polar = getPolarity(tweet)
                     if polar != 100 and subject != 0:
@@ -83,6 +86,10 @@ def getTopic(username):
                         tweet_count += 1
                         results.insert(0, colors)
 
+    if ukraine:
+        results = ["005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500"]
+        random.shuffle(results)
+        
     return(results[:9])
 
 
@@ -94,8 +101,8 @@ def getFullTopic(username):
     else:
         results = ["fee2e2", "ffedd5", "ecfccb", "dcfce7", "e0f2fe", "ede9fe", "fae8ff", "fce7f3", "c7d2fe"]
 
-
     random.shuffle(results)
+    
     try:
         tweets = getTweets(username)
     except:
@@ -105,8 +112,11 @@ def getFullTopic(username):
     tweet_count = 0 
     subject_total = []
     polar_total = []
+    ukraine = False
     if tweets:
         for tweet in tweets:
+            if "#StandWithUkraine️" in tweet:
+                ukraine = True 
             if "RT @" not in tweet:
                 if tweet_count < 10:
                     
@@ -127,5 +137,7 @@ def getFullTopic(username):
     subject_mode = my_mode(subject_total)
     polar_mode = my_mode(polar_total)
 
-
+    if ukraine:
+        results = ["005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500"]
+        random.shuffle(results)
     return(results[:9], tweet_numbers, subject_mode[0], polar_mode[0])

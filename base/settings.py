@@ -26,8 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-SECURE_SSL_REDIRECT = True
+DEBUG = True
+SECURE_SSL_REDIRECT = False
 
 INTERNAL_IPS = [
     "127.0.0.1", 

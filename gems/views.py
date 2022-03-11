@@ -177,13 +177,18 @@ def LearnMore(request):
 
 def GemPreview(request, tokenId):
     meta_match = gemsMeta.objects.filter(metaID=tokenId).first()
-    print("hello")
-    print(meta_match)
+
     if meta_match:
         twitter_connection = twitterConnection.objects.filter(meta_data=meta_match).first()
         if twitter_connection:
             final, tn, subject, polar = getFullTopic(twitter_connection.twitter)
             base_code, svg_code = get_image(final, int(meta_match.background))
+            results = save_to_png(svg_code, twitter_connection.twitter)
+
+            f = open(results, 'rb')
+            meta_match.image_file = File(f)
+            meta_match.save()
+            
         else:
             final, tn, subject, polar = getFullTopic('_none_')
             base_code, _ = get_image(final, int(meta_match.background))
