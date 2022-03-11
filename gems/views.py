@@ -45,7 +45,7 @@ from requests_oauthlib import requests
 from .utils import is_twitter_authenticated, update_or_create_user_token, get_user_tokens
 from web3 import Web3
 from .gemsContract import *
-
+from .forms import *
 
 
 w3 = Web3(Web3.HTTPProvider('https://eth-mainnet.alchemyapi.io/v2/nFzmfPoiMWnPgTBNZWU9JGmkWSAeoVIt'))
@@ -173,6 +173,22 @@ def GemReset(request, tokenId, wallet, twitterId, twitterRef):
 def LearnMore(request):
     
     return render(request, "learn-more.html", {})
+
+def GemSearch(request):
+
+    if request.method == "POST":
+
+        # get the form data
+        form = gemSearchForm(request.POST)
+        q = 1
+        # save the data and after fetch the object in instance
+        if form.is_valid():
+   
+            # serialize in new friend object in json
+            q = form.cleaned_data.get('tokenId')
+        return redirect('gem_preview', tokenId=int(q))
+    else:
+        return redirect('gem_preview', tokenId=1)
 
 
 def GemPreview(request, tokenId):

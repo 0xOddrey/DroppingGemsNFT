@@ -42,6 +42,11 @@ urlpatterns = [
         views.Mint, 
         name='mint'),
 
+    url(r'^gem-search/',
+        views.GemSearch, 
+        name='gem_search'),
+
+
     url(r'^gem-preview/(?P<tokenId>[\w\s]+)/',
         views.GemPreview, 
         name='gem_preview'),
