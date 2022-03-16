@@ -57,95 +57,105 @@ def getTweets(username):
 def getTopic(username):
     filename = "gems/static/images/colors_scheme.png"
     img = Image.open(filename)
-    if username == "_none_":
-        results = ["cbd5e1", "94a3b8", "64748b", "e2e8f0", "cbd5e1", "94a3b8", "64748b", "e2e8f0", "94a3b8"]
-    else:
+    if username != "_none_":
         results = ["fee2e2", "ffedd5", "ecfccb", "dcfce7", "e0f2fe", "ede9fe", "fae8ff", "fce7f3", "c7d2fe"]
-
-
-
-    random.shuffle(results)
-    try:
-        tweets = getTweets(username)
-    except:
-        tweets = None
-
-    tweet_count = 0 
-    ukraine = False 
-    if tweets:
-        for tweet in tweets:
-            if "#StandWithUkraine️" in tweet:
-                ukraine = True 
-            if "RT @" not in tweet:
-                if tweet_count < 10:
-                    subject = getSubjectivity(tweet)
-                    polar = getPolarity(tweet)
-                    if polar != 100 and subject != 0:
-                        colors = img.getpixel((polar, subject))
-                        colors = '{:02x}{:02x}{:02x}'.format(*colors)
-                        tweet_count += 1
-                        results.insert(0, colors)
-
-    if ukraine:
-        results = ["005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500"]
         random.shuffle(results)
-        
+        try:
+            tweets = getTweets(username)
+        except:
+            tweets = None
+
+        tweet_count = 0 
+        ukraine = False 
+        blackat = False
+        if tweets:
+            for tweet in tweets:
+                if "@blackatxyz" in tweet.lower():
+                    blackat = True 
+                if "#standwithukraine️" in tweet.lower():
+                    ukraine = True 
+                if "RT @" not in tweet:
+                    if tweet_count < 10:
+                        subject = getSubjectivity(tweet)
+                        polar = getPolarity(tweet)
+                        if polar != 100 and subject != 0:
+                            colors = img.getpixel((polar, subject))
+                            colors = '{:02x}{:02x}{:02x}'.format(*colors)
+                            tweet_count += 1
+                            results.insert(0, colors)
+
+        if blackat:
+            results = ["4d4d4d", "3c3c3c", "000000", "4d4d4d", "111111", "1e1e1e", "111111", "000000", "3c3c3c", "111111"]
+            random.shuffle(results)
+
+        if ukraine:
+            results = ["005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500"]
+            random.shuffle(results)
+
+    else:
+        results = ["cbd5e1", "94a3b8", "64748b", "e2e8f0", "cbd5e1", "94a3b8", "64748b", "e2e8f0", "94a3b8"]
+
+
     return(results[:9])
 
 
 def getFullTopic(username):
     filename = "gems/static/images/colors_scheme.png"
     img = Image.open(filename)
-    if username == "_none_":
-        results = ["cbd5e1", "94a3b8", "64748b", "e2e8f0", "cbd5e1", "94a3b8", "64748b", "e2e8f0", "94a3b8"]
-    else:
+    subject_mode = [0,0]
+    polar_mode = [0,0]
+    tweet_numbers = []
+    if username != "_none_":
         results = ["fee2e2", "ffedd5", "ecfccb", "dcfce7", "e0f2fe", "ede9fe", "fae8ff", "fce7f3", "c7d2fe"]
 
-    random.shuffle(results)
-    
-    try:
-        tweets = getTweets(username)
-    except:
-        tweets = None
-
-    tweet_numbers = []
-    tweet_count = 0 
-    subject_total = []
-    polar_total = []
-    ukraine = False
-    blackat = False
-    if tweets:
-        for tweet in tweets:
-            if "@Blackatxyz" in tweet.lower():
-                blackat = True 
-            if "#standwithukraine️" in tweet.lower():
-                ukraine = True 
-            
-            if "RT @" not in tweet:
-                if tweet_count < 10:
-                    
-                    subject = getSubjectivity(tweet)
-                    
-                    polar = getPolarity(tweet)
-                    
-                    if polar != 100 and subject != 0:
-                        subject_total.append(round(subject/10)*10)
-                        polar_total.append(round(polar/10)*10)
-                        colors = img.getpixel((polar, subject))
-                        colors = '{:02x}{:02x}{:02x}'.format(*colors)
-                        tweet_count += 1
-                        results.insert(0, colors)
-                        numer_totals = colors, subject, polar
-                        tweet_numbers.append(numer_totals)
-    
-    subject_mode = my_mode(subject_total)
-    polar_mode = my_mode(polar_total)
-
-    if blackat:
-        results = ["4d4d4d", "3c3c3c", "000000", "4d4d4d", "111111", "1e1e1e", "111111", "000000", "3c3c3c", "111111"]
         random.shuffle(results)
+        
+        try:
+            tweets = getTweets(username)
+        except:
+            tweets = None
 
-    if ukraine:
-        results = ["005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500"]
-        random.shuffle(results)
+        tweet_count = 0 
+        subject_total = []
+        polar_total = []
+        ukraine = False
+        blackat = False
+        if tweets:
+            for tweet in tweets:
+                if "@Blackatxyz" in tweet.lower():
+                    blackat = True 
+                if "#standwithukraine️" in tweet.lower():
+                    ukraine = True 
+                
+                if "RT @" not in tweet:
+                    if tweet_count < 10:
+                        
+                        subject = getSubjectivity(tweet)
+                        
+                        polar = getPolarity(tweet)
+                        
+                        if polar != 100 and subject != 0:
+                            subject_total.append(round(subject/10)*10)
+                            polar_total.append(round(polar/10)*10)
+                            colors = img.getpixel((polar, subject))
+                            colors = '{:02x}{:02x}{:02x}'.format(*colors)
+                            tweet_count += 1
+                            results.insert(0, colors)
+                            numer_totals = colors, subject, polar
+                            tweet_numbers.append(numer_totals)
+        
+        subject_mode = my_mode(subject_total)
+        polar_mode = my_mode(polar_total)
+
+        if blackat:
+            results = ["4d4d4d", "3c3c3c", "000000", "4d4d4d", "111111", "1e1e1e", "111111", "000000", "3c3c3c", "111111"]
+            random.shuffle(results)
+
+        if ukraine:
+            results = ["005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500"]
+            random.shuffle(results)
+
+    else:
+        results = ["cbd5e1", "94a3b8", "64748b", "e2e8f0", "cbd5e1", "94a3b8", "64748b", "e2e8f0", "94a3b8"]
+
     return(results[:9], tweet_numbers, subject_mode[0], polar_mode[0])
