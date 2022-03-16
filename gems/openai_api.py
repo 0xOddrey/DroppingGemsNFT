@@ -68,10 +68,13 @@ def getTopic(username):
         tweet_count = 0 
         ukraine = False 
         blackat = False
+        sxsw = False 
         if tweets:
             for tweet in tweets:
                 if "@blackatxyz" in tweet.lower():
                     blackat = True 
+                if "#sxsw" in tweet.lower():
+                    sxsw = True 
                 if "#standwithukraine️" in tweet.lower():
                     ukraine = True 
                 if "RT @" not in tweet:
@@ -87,6 +90,11 @@ def getTopic(username):
         if blackat:
             results = ["4d4d4d", "3c3c3c", "000000", "4d4d4d", "111111", "1e1e1e", "111111", "000000", "3c3c3c", "111111"]
             random.shuffle(results)
+
+        if sxsw:
+            results = ["C3FB5C", "6A7EF9", "1DE38C", "36C7AE", "C3FB5C", "6A7EF9", "1DE38C", "36C7AE", "C3FB5C", "6A7EF9",]
+            random.shuffle(results)
+
 
         if ukraine:
             results = ["005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500"]
@@ -120,10 +128,13 @@ def getFullTopic(username):
         polar_total = []
         ukraine = False
         blackat = False
+        sxsw = False 
         if tweets:
             for tweet in tweets:
                 if "@Blackatxyz" in tweet.lower():
                     blackat = True 
+                if "#sxsw" in tweet.lower():
+                    sxsw = True 
                 if "#standwithukraine️" in tweet.lower():
                     ukraine = True 
                 
@@ -150,6 +161,11 @@ def getFullTopic(username):
         if blackat:
             results = ["4d4d4d", "3c3c3c", "000000", "4d4d4d", "111111", "1e1e1e", "111111", "000000", "3c3c3c", "111111"]
             random.shuffle(results)
+
+        if sxsw:
+            results = ["C3FB5C", "6A7EF9", "1DE38C", "36C7AE", "C3FB5C", "6A7EF9", "1DE38C", "36C7AE", "C3FB5C", "6A7EF9",]
+            random.shuffle(results)
+
 
         if ukraine:
             results = ["005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500"]
