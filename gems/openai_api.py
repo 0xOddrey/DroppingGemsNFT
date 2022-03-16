@@ -113,10 +113,14 @@ def getFullTopic(username):
     subject_total = []
     polar_total = []
     ukraine = False
+    blackat = False
     if tweets:
         for tweet in tweets:
-            if "#StandWithUkraine️" in tweet:
+            if "@Blackatxyz" in tweet.lower():
+                blackat = True 
+            if "#standwithukraine️" in tweet.lower():
                 ukraine = True 
+            
             if "RT @" not in tweet:
                 if tweet_count < 10:
                     
@@ -136,6 +140,10 @@ def getFullTopic(username):
     
     subject_mode = my_mode(subject_total)
     polar_mode = my_mode(polar_total)
+
+    if blackat:
+        results = ["4d4d4d", "3c3c3c", "000000", "4d4d4d", "111111", "1e1e1e", "111111", "000000", "3c3c3c", "111111"]
+        random.shuffle(results)
 
     if ukraine:
         results = ["005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500", "005BBB", "FFD500"]

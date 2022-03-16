@@ -40,6 +40,8 @@
 	
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
       <!-- PAGE TITLE -->
       <title>Learn More</title>
       
@@ -107,7 +109,11 @@
 						{% if token.1.twitter %}
 						<a type="button" class="btn btn-primary" class="twitter-share-button"
 						href="https://twitter.com/intent/tweet?text=I'm%20dropping%20gems%20%40DroppingGemsNFT%20https%3A%2F%2Fwww.gemsNFT.co%2Fgem-preview%2F{{token.0.metaID}}" target= "_blank">
-						Share Gem</a>
+						Share Gem 
+						<span class="material-icons">
+							share
+							</span>
+						</a>
 						{% endif %}
                         <div class="flex-1 flex flex-col p-8">
                         <img class="w-45 h-45 flex-shrink-0 mx-auto rounded-full" src="{{token.0.image|safe}}" alt="">
@@ -130,11 +136,18 @@
 							<div class="btn-group" role="group" aria-label="Basic example">
 									{% if token.1.twitter %}
 										{% if token.0.is_anon %}  
-										<a href="{% url 'my_gems_anon' 0 token.0.metaID wallet_addy token.1.id token.1.twitter_ref %}" title="Your Twitter Handle will be revealed in Gem Name"  type="button" style="white-space: normal;" class="btn btn-block btn-danger btn-sm col-12 col-md-6">Hidden</a>
+										<a href="{% url 'my_gems_anon' 0 token.0.metaID wallet_addy token.1.id token.1.twitter_ref %}" title="Your Twitter Handle will be revealed in Gem Name"  type="button" style="white-space: normal;" class="btn btn-block btn-danger btn-sm col-12 col-md-6">
+											<span class="material-icons">
+												visibility_off
+												</span>
+											Handle</a>
 										{% else %}
 										<a href="{% url 'my_gems_anon' 1 token.0.metaID wallet_addy token.1.id token.1.twitter_ref %}" title="Your Twitter Handle will not be in the Name of the Gem" type="button"  style="white-space: normal;" class="btn btn-block btn-success btn-sm col-12 col-md-6">
 											
-											Revealed</a>
+											<span class="material-icons">
+												visibility
+												</span>
+												Handle</a>
 										
 										{% endif %}
 										<a href="{% url 'my_gems_reset' token.0.metaID wallet_addy token.1.id token.1.twitter_ref %}" title="Removes Twitter Connection of Gem" type="button"  class="btn btn-block btn-secondary btn-sm col-12 col-md-6">Reset Gem</a>
