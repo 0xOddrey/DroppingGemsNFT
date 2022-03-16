@@ -131,7 +131,7 @@ def getFullTopic(username):
         sxsw = False 
         if tweets:
             for tweet in tweets:
-                if "@Blackatxyz" in tweet.lower():
+                if "@blackatxyz" in tweet.lower():
                     blackat = True 
                 if "#sxsw" in tweet.lower():
                     sxsw = True 
